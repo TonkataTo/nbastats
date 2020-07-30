@@ -1,1 +1,3 @@
 # nbastats
+
+neshto samo i
