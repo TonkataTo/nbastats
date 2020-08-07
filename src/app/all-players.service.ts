@@ -10,7 +10,7 @@ export class AllPlayersService {
 
   public resourceUrl = SERVER_API_URL + 'api/v1/players';
   constructor(private http: HttpClient) { }
-
+  
   query() {
     return this.http.get<any[]>(this.resourceUrl);
   }

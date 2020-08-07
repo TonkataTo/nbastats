@@ -1,4 +1,5 @@
-<div *ngFor="let player of players">
-    <span>Player id: {{player.id}}</span>
-    <span>First Name: {{player.first_name}}</span>
+<div class="player-wrap" *ngFor="let player of players">
+    <div>Player id: {{player.id}}</div>
+    <div>First Name: {{player.first_name}}</div>
+    <div>Team: {{player.team.full_name}}</div>
 </div>

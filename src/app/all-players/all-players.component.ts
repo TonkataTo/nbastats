@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { AllPlayersService } from '../all-players.service'
+import { IPlayer } from './player.model';
 @Component({
   selector: 'app-all-players',
   templateUrl: './all-players.component.html',
   styleUrls: ['./all-players.component.css']
 })
 export class AllPlayersComponent implements OnInit {
-  players: any[] = [];
+  players: IPlayer[] = [];
   constructor(private allPlayersService: AllPlayersService) { 
     this.getAllPlayers();
   }
