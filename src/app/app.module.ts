@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AllPlayersModule } from './all-players/all-players.module';
 import { AllTeamsModule } from './all-teams/all-teams.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -12,6 +13,7 @@ import { AllTeamsModule } from './all-teams/all-teams.module';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     AllPlayersModule,
     AllTeamsModule
