@@ -10,8 +10,12 @@ export class AllPlayersService {
 
   public resourceUrl = SERVER_API_URL + 'api/v1/players';
   constructor(private http: HttpClient) { }
-  
-  query() {
-    return this.http.get<any[]>(this.resourceUrl);
+
+  query(search?: string) {
+    if (search){
+      return this.http.get<any[]>(this.resourceUrl + '?search=' + search);
+    } else {
+      return this.http.get<any[]>(this.resourceUrl);
+    }
   }
 }
