@@ -1,3 +1,4 @@
+import { MAX_SEARCH_STRING, MIN_SEARCH_STRING } from './../app.constants';
 import { Component, OnInit } from '@angular/core';
 import { AllPlayersService } from '../all-players.service';
 import { IPlayer } from './player.model';
@@ -10,8 +11,8 @@ import { IPlayer } from './player.model';
 export class AllPlayersComponent implements OnInit {
   players: IPlayer[] = [];
   search: string;
-  maxSearchString = 40;
-  minSearchString = 2;
+  maxSearchString = MAX_SEARCH_STRING;
+  minSearchString = MIN_SEARCH_STRING;
   constructor(private allPlayersService: AllPlayersService) {
     this.getAllPlayers();
   }

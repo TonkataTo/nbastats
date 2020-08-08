@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -8,7 +9,8 @@ import { AllTeamsComponent } from './all-teams.component';
   declarations: [AllTeamsComponent],
   imports: [
     CommonModule,
-    AllTeamsRoutingModule
+    AllTeamsRoutingModule,
+    FormsModule
   ]
 })
 export class AllTeamsModule { }

@@ -1,6 +1,5 @@
-<input type="text" class="form-control" placeholder = "min 2 letters" id="name"
-       required
-       [(ngModel)]="search" name="name"  (ngModelChange)="searchPlayers()">
+<input type="text" class="search-input" placeholder = "min 2 letters" id="name"
+       [(ngModel)]="search" name="search"  (ngModelChange)="searchPlayers()" autocomplete="off">
     <p *ngIf="search?.length>maxSearchString" class="error-input">Search text too long</p>
 
     <div class="player-wrap" *ngFor="let player of players">
