@@ -5,7 +5,11 @@
   <div class="team-wrap" *ngFor="let team of teams">
     <div>Team id: {{team.id}}</div>
     <div>Abbreviation: {{team.abbreviation}}</div>
+    <div>City: {{team.city}}</div>
+    <div>Conference: {{team.conference}}</div>
+    <div>Division: {{team.division}}</div>
     <div>FullName: {{team.full_name}}</div>
+    <div>Name: {{team.name}}</div>
   </div>
 </div>
 <div *ngIf="search" class="error-input">API does not support team search yet</div>
