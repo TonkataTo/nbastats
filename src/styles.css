@@ -4,3 +4,7 @@
   font-weight: bold;
   font-size: 20px;
 }
+.search-input {
+  display: table;
+  margin: 0 auto;
+}

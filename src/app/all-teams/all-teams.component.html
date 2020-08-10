@@ -1,7 +1,7 @@
 <input type="text" class="search-input" placeholder = "min 2 letters" autocomplete="off"
 [(ngModel)]="search" name="search" (ngModelChange)="searchTeams()">
 <p *ngIf="search?.length>maxSearchString" class="error-input">Search text too long</p>
-<div *ngIf="!search">
+<div class="teams-wrap" *ngIf="!search">
   <div class="team-wrap" *ngFor="let team of teams">
     <div>Team id: {{team.id}}</div>
     <div>Abbreviation: {{team.abbreviation}}</div>
