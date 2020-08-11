@@ -1,3 +1,4 @@
+import { AllGamesModule } from './all-games/all-games.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -16,7 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     AppRoutingModule,
     AllPlayersModule,
-    AllTeamsModule
+    AllTeamsModule,
+    AllGamesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
