@@ -26,12 +26,12 @@ export class AllTeamsComponent implements OnInit {
       this.teams = res.data;
     });
   }
-  searchTeams(){
-    if (this.search?.length >= this.minSearchString && this.search?.length < this.maxSearchString) {
-      this.allTeamsService.query(this.search).subscribe((res: any) => {
-        this.teams = res.data;
-      });
-    }
-  }
+  // searchTeams(){
+  //   if (this.search?.length >= this.minSearchString && this.search?.length < this.maxSearchString) {
+  //     this.allTeamsService.query(this.search).subscribe((res: any) => {
+  //       this.teams = res.data;
+  //     });
+  //   }
+  // }
 
 }

@@ -1,8 +1,8 @@
 <input type="text" class="search-input" placeholder = "min 2 letters" autocomplete="off"
-[(ngModel)]="search" name="search" (ngModelChange)="searchTeams()">
+[(ngModel)]="search" name="search">
 <p *ngIf="search?.length>maxSearchString" class="error-input">Search text too long</p>
-<div class="teams-wrap" *ngIf="!search">
-  <div class="team-wrap" *ngFor="let team of teams">
+<div class="teams-wrap">
+  <div class="team-wrap" *ngFor="let team of teams | teamFilterPipe: search">
     <div>Team id: {{team.id}}</div>
     <div>Abbreviation: {{team.abbreviation}}</div>
     <div>City: {{team.city}}</div>
@@ -12,4 +12,3 @@
     <div>Name: {{team.name}}</div>
   </div>
 </div>
-<div *ngIf="search" class="error-input">API does not support team search yet</div>
