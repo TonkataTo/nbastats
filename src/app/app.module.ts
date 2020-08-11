@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { AllPlayersModule } from './all-players/all-players.module';
 import { AllTeamsModule } from './all-teams/all-teams.module';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     AllPlayersModule,
     AllTeamsModule,
-    AllGamesModule
+    AllGamesModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

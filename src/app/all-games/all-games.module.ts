@@ -1,9 +1,13 @@
 import { AllGamesRoutingModule } from './all-games-routing.module';
 import { AllGamesComponent } from './all-games.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
+import { MatSliderModule } from '@angular/material/slider';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 
 @NgModule({
@@ -11,7 +15,12 @@ import { CommonModule } from '@angular/common';
   imports: [
     CommonModule,
     AllGamesRoutingModule,
-    FormsModule
+    FormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSliderModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
   ]
 })
 export class AllGamesModule { }
