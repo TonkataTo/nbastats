@@ -1,7 +1,7 @@
 
 
 export interface ITeam {
-    id?: any;
+    id?: string;
     abbreviation?: string;
     city?: string;
     conference?: string;
@@ -12,7 +12,7 @@ export interface ITeam {
 
 export class Team implements ITeam {
   constructor(
-    public id?: any,
+    public id?: string,
     public abbreviation?: string,
     public city?: string,
     public conference?: string,

@@ -14,3 +14,23 @@
 
 </form>
 <p>Selected range: {{range.value | json}}</p>
+
+<input type="text" class="search-input" placeholder = "min 2 letters" autocomplete="off"
+[(ngModel)]="search" name="search">
+<p *ngIf="search?.length>maxSearchString" class="error-input">Search text too long</p>
+<div class="teams-wrap">
+  <div class="team-wrap" *ngFor="let game of games | gameFilterPipe: search">
+    <div>Id: {{game.id}}</div>
+    <div>date: {{game.date}}</div>
+    <div>Home team score: {{game.home_team_score}}</div>
+    <div>Visitors team score: {{game.visitor_team_score}}</div>
+    <div>Season: {{game.season}}</div>
+    <div>Period: {{game.period}}</div>
+    <div>Status: {{game.status}}</div>
+    <div>Time: {{game.time}}</div>
+    <div>Postseason: {{game.postseason}}</div>
+    <div>Home team: {{game.home_team}}</div>
+    <div>Visitor team: {{game.visitor_team}}</div>
+  </div>
+</div>
+

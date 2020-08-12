@@ -3,7 +3,7 @@
 <p *ngIf="search?.length>maxSearchString" class="error-input">Search text too long</p>
 <div class="teams-wrap">
   <div class="team-wrap" *ngFor="let team of teams | teamFilterPipe: search">
-    <div>Team id: {{team.id}}</div>
+    <div>Team Id: {{team.id}}</div>
     <div>Abbreviation: {{team.abbreviation}}</div>
     <div>City: {{team.city}}</div>
     <div>Conference: {{team.conference}}</div>
