@@ -1,3 +1,4 @@
+import { CustomRange } from './../shared/custom-range.model';
 // import { FilterPipe } from './../filter.pipe';
 import { AllGamesService } from './../all-games.service';
 import { IGame } from './game.model';
@@ -15,7 +16,8 @@ export class AllGamesComponent implements OnInit {
     start: new FormControl(),
     end: new FormControl()
   });
-
+  rangeFilter: CustomRange;
+  teamIds: string[] = [];
   games: IGame [] = [];
   search: string;
   minSearchString = MIN_SEARCH_STRING;
@@ -29,8 +31,19 @@ export class AllGamesComponent implements OnInit {
   }
 
   getAllGames(){
-    this.allGamesService.query().subscribe((res: any) => {
+    this.allGamesService.query(this.rangeFilter, this.teamIds).subscribe((res: any) => {
       this.games = res.data;
     });
+  }
+  filterGames() {
+    this.rangeFilter = null;
+    const startFormValue = this.range.get('start').value;
+    const endFormValue  = this.range.get('end').value;
+    if (startFormValue && endFormValue) {
+      this.rangeFilter = new CustomRange( JSON.stringify(startFormValue).substring(1, 11),
+      JSON.stringify(endFormValue).substring(1, 11));
+    }
+    // Set teamIds must be set in separate function
+    this.getAllGames();
   }
 }

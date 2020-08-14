@@ -1,3 +1,4 @@
+import { ITeam } from './../all-teams/team.model';
 export interface IGame {
   id?: any;
   date?: string;
@@ -8,8 +9,8 @@ export interface IGame {
   status?: string;
   time?: string;
   postseason?: boolean;
-  home_team?: string;
-  visitor_team?: string;
+  home_team?: ITeam;
+  visitor_team?: ITeam;
   start_date?: string;
   end_date?: string;
 }
@@ -28,9 +29,9 @@ export class Game implements IGame{
     public time?: string,
     public postseason?: boolean,
     // tslint:disable-next-line: variable-name
-    public home_team?: string,
+    public home_team?: ITeam,
     // tslint:disable-next-line: variable-name
-    public visitor_team?: string,
+    public visitor_team?: ITeam,
     // tslint:disable-next-line: variable-name
     public start_date?: string,
     // tslint:disable-next-line: variable-name
