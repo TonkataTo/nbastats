@@ -10,6 +10,8 @@ export interface IGame {
   postseason?: boolean;
   home_team?: string;
   visitor_team?: string;
+  start_date?: string;
+  end_date?: string;
 }
 
 export class Game implements IGame{
@@ -29,5 +31,9 @@ export class Game implements IGame{
     public home_team?: string,
     // tslint:disable-next-line: variable-name
     public visitor_team?: string,
+    // tslint:disable-next-line: variable-name
+    public start_date?: string,
+    // tslint:disable-next-line: variable-name
+    public end_date?: string,
   ) {}
 }

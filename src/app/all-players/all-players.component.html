@@ -2,13 +2,14 @@
        [(ngModel)]="search" name="search"  (ngModelChange)="searchPlayers()" autocomplete="off">
     <p *ngIf="search?.length>maxSearchString" class="error-input">Search text too long</p>
 
-    <div class="player-wrap" *ngFor="let player of players">
-    <div>Player id: {{player.id}}</div>
-    <div>First Name: {{player.first_name}}</div>
-    <div>Last Name: {{player.last_name}}</div>
-    <div>Position: {{player.position}}</div>
-    <div>Height Feet: {{player.height_feet}}</div>
-    <div>Height Inches: {{player.height_inches}}</div>
-    <div>Weight Pounds: {{player.weight_pounds}}</div>
-    <div>Team: {{player.team.full_name}}</div>
-</div>
+    <div class="players-wrap">
+      <div class="player-wrap" *ngFor="let player of players">
+      <div>Player id: {{player.id}}</div>
+      <div>First Name: {{player.first_name}}</div>
+      <div>Last Name: {{player.last_name}}</div>
+      <div>Position: {{player.position}}</div>
+      <div>Height Feet: {{player.height_feet}}</div>
+      <div>Height Inches: {{player.height_inches}}</div>
+      <div>Weight Pounds: {{player.weight_pounds}}</div>
+      <div>Team: {{player.team.full_name}}</div>
+    </div>

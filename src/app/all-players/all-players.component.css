@@ -1,5 +1,15 @@
 .player-wrap{
-    border: 1px solid orange;
-    margin-bottom: 2em;
+    border: 4px double orange;
+    margin: 1em;
     padding: 1em;
+    width: 15em;
+    min-height: 11em;
+    border-radius: 16px;
+    display: inline-block;
+}
+
+.players-wrap {
+  max-width: 80em;
+  display: table;
+  margin: 0 auto;
 }
