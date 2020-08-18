@@ -20,7 +20,7 @@ export class GameFilterPipe implements PipeTransform {
       || t.status.toLocaleLowerCase().includes(searchText)
       || t.time.toLocaleLowerCase().includes(searchText)
       // || t.postseason.toLocaleLowerCase().includes(searchText)
-      || t.home_team.toLocaleLowerCase().includes(searchText)
-      || t.visitor_team.toLocaleLowerCase().includes(searchText));
+      || t.home_team.full_name.toLocaleLowerCase().includes(searchText)
+      || t.visitor_team.full_name.toLocaleLowerCase().includes(searchText));
   }
 }

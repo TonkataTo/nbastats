@@ -1,7 +1,7 @@
 import { ITeam } from '../all-teams/team.model';
 
 export interface IPlayer {
-    id?: any;
+    id?: string;
     first_name?: string;
     last_name?: string;
     position?: string;
@@ -13,7 +13,7 @@ export interface IPlayer {
 
 export class Player implements IPlayer {
   constructor(
-    public id?: any,
+    public id?: string,
     // tslint:disable-next-line: variable-name
     public first_name?: string,
     // tslint:disable-next-line: variable-name
