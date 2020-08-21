@@ -22,6 +22,7 @@
 </div> -->
 <div class="teams-wrap">
   <div class="team-wrap" *ngFor="let game of games">
+    <input type="checkbox" name="checkedItem">
     <div>Id: {{game.id}}</div>
     <div>date: {{game.date}}</div>
     <div>Home team score: {{game.home_team_score}}</div>

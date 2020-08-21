@@ -8,6 +8,7 @@ import { AllPlayersModule } from './all-players/all-players.module';
 import { AllTeamsModule } from './all-teams/all-teams.module';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AllStatsModule } from './all-stats/all-stats.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AllPlayersModule,
     AllTeamsModule,
     AllGamesModule,
+    AllStatsModule,
     BrowserAnimationsModule,
   ],
   providers: [],
