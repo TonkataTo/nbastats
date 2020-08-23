@@ -67,6 +67,7 @@ export interface IGameStats {
   season?: any;
   visitor_team_id?: string;
   visitor_team_score?: string;
+  selected: boolean;
 }
 
 // export class GameStats implements IGameStats {

@@ -8,10 +8,13 @@ import { MatNativeDateModule } from '@angular/material/core';
 
 import { MatSliderModule } from '@angular/material/slider';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { GameFilterPipe } from '../games-filter.pipe';
+// import { GameFilterPipe } from '../games-filter.pipe';
+// import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
-  declarations: [AllGamesComponent, GameFilterPipe],
+  declarations: [AllGamesComponent],
+
+  bootstrap: [AllGamesComponent],
   imports: [
     CommonModule,
     AllGamesRoutingModule,
@@ -20,7 +23,7 @@ import { GameFilterPipe } from '../games-filter.pipe';
     MatNativeDateModule,
     MatSliderModule,
     ReactiveFormsModule,
-    MatFormFieldModule,
+    MatFormFieldModule
   ]
 })
 export class AllGamesModule { }

@@ -22,7 +22,7 @@ import { AllStatsModule } from './all-stats/all-stats.module';
     AllTeamsModule,
     AllGamesModule,
     AllStatsModule,
-    BrowserAnimationsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

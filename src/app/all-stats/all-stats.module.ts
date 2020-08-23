@@ -1,3 +1,4 @@
+import { StatsFilterPipe } from './../stats-filter.pipe';
 import { AllStatsRoutingModule } from './all-stats-routing.module';
 import { AllStatsComponent } from './all-stats.component';
 import { NgModule } from '@angular/core';
@@ -7,7 +8,7 @@ import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
-  declarations: [AllStatsComponent],
+  declarations: [AllStatsComponent, StatsFilterPipe],
   imports: [
     CommonModule,
     AllStatsRoutingModule,

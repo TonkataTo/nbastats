@@ -1,7 +1,35 @@
-<input type='text' class='search-input' placeholder='Searh for stats'>
-<p>It works!</p>
+ <form class="container" (ngSubmit)="getSelected()">
+  <button class="submit-button" type="submit">Show games</button>
+  <input type="text" class="search-input" placeholder = "min 2 letters" autocomplete="off"
+    [(ngModel)]="search" name="search">
+  <p *ngIf="search?.length>maxSearchString" class="error-input">Search text too long</p>
+</form>
 
-
-<input type="text" class="search-input" placeholder = "min 2 letters" autocomplete="off"
- name="search">
-
+  <div class="teams-wrap">
+    <input type="checkbox" name="checkedItem">
+   <div class="team-wrap" *ngFor="let game of games | statsFilterPipe: search">
+     <div>Team Id: {{game.home_team_id}}</div>
+     <div>Abbreviation: {{game.home_team_score}}</div>
+     <div>City: {{game.season}}</div>
+     <div>Conference: {{game.visitor_team_id}}</div>
+     <div>Division: {{game.visitor_team_score}}</div>
+    </div>
+  </div>
+  <div class="teams-wrap">
+    <div class="team-wrap" *ngFor="let player of players | statsFilterPipe: search">
+     <div>FullName: {{player.first_name}}</div>
+     <div>Name: {{player.last_name}}</div>
+     <div>Name: {{player.position}}</div>
+     <div>Name: {{player.team_id}}</div>
+    </div>
+  </div>
+  <div class="teams-wrap">
+    <div class="team-wrap" *ngFor="let team of teams | statsFilterPipe: search">
+     <div>Name: {{team.abbreviation}}</div>
+     <div>Name: {{team.city}}</div>
+     <div>Name: {{team.conference}}</div>
+     <div>Name: {{team.division}}</div>
+     <div>Name: {{team.full_name}}</div>
+     <div>Name: {{team.name}}</div>
+   </div>
+ </div>

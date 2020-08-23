@@ -11,23 +11,23 @@ export class StatsFilterPipe implements PipeTransform {
       return items;
     }
     searchText = searchText.toLocaleLowerCase();
-    return items.filter(t =>
-      t.game.date.toLocaleLowerCase().includes(searchText)
-      || t.game.home_team_id.toLocaleLowerCase().includes(searchText)
-      || t.game.home_team_score.toLocaleLowerCase().includes(searchText)
-      || t.game.season.toLocaleLowerCase().includes(searchText)
-      || t.game.visitor_team_id.toLocaleLowerCase().includes(searchText)
-      || t.game.visitor_team_score.toLocaleLowerCase().includes(searchText)
-      || t.player.first_name.toLocaleLowerCase().includes(searchText)
+    return items.filter(s =>
+      s.game.date.toLocaleLowerCase().includes(searchText)
+      || s.game.home_team_id.toLocaleLowerCase().includes(searchText)
+      || s.game.home_team_score.toLocaleLowerCase().includes(searchText)
+      || s.game.season.toLocaleLowerCase().includes(searchText)
+      || s.game.visitor_team_id.toLocaleLowerCase().includes(searchText)
+      || s.game.visitor_team_score.toLocaleLowerCase().includes(searchText)
+      || s.player.first_name.toLocaleLowerCase().includes(searchText)
       // || t.postseason.toLocaleLowerCase().includes(searchText)
-      || t.player.last_name.toLocaleLowerCase().includes(searchText)
-      || t.player.position.toLocaleLowerCase().includes(searchText)
-      || t.player.team_id.toLocaleLowerCase().includes(searchText)
-      || t.team.abbreviation.toLocaleLowerCase().includes(searchText)
-      || t.team.city.toLocaleLowerCase().includes(searchText)
-      || t.team.conference.toLocaleLowerCase().includes(searchText)
-      || t.team.division.toLocaleLowerCase().includes(searchText)
-      || t.team.full_name.toLocaleLowerCase().includes(searchText)
-      || t.team.name.toLocaleLowerCase().includes(searchText));
+      || s.player.last_name.toLocaleLowerCase().includes(searchText)
+      || s.player.position.toLocaleLowerCase().includes(searchText)
+      || s.player.team_id.toLocaleLowerCase().includes(searchText)
+      || s.team.abbreviation.toLocaleLowerCase().includes(searchText)
+      || s.team.city.toLocaleLowerCase().includes(searchText)
+      || s.team.conference.toLocaleLowerCase().includes(searchText)
+      || s.team.division.toLocaleLowerCase().includes(searchText)
+      || s.team.full_name.toLocaleLowerCase().includes(searchText)
+      || s.team.name.toLocaleLowerCase().includes(searchText));
   }
 }
