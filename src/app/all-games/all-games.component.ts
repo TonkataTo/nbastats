@@ -27,6 +27,15 @@ export class AllGamesComponent implements OnInit {
   }
 
   ngOnInit(): void {
+      // this.todos = this.todoService.todos; // subscribe to entire collection
+
+      // // subscribe to only one todo
+      // this.singleTodo$ = this.todoService.todos.pipe(
+      //   map(todos => todos.find(item => item.id === '1'))
+      // );
+
+      // this.todoService.loadAll();    // load all todos
+      // this.todoService.load('1');    // load only todo with id of '1'
   }
 
   getAllGames(){

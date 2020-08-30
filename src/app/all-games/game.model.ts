@@ -14,6 +14,7 @@ export interface IGame {
   visitor_team?: ITeam;
   start_date?: string;
   end_date?: string;
+  selected?: boolean;
 }
 
 export class Game implements IGame{
@@ -37,5 +38,6 @@ export class Game implements IGame{
     public start_date?: string,
     // tslint:disable-next-line: variable-name
     public end_date?: string,
+    public selected?: boolean
   ) {}
 }

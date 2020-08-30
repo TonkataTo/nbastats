@@ -1,3 +1,4 @@
+import { ITeam } from '../all-teams/team.model';
 
 
 export interface IStats {
@@ -61,52 +62,53 @@ export class Stats implements IStats {
 
 export interface IGameStats {
   id?: number;
-  date?: string;
-  home_team_id?: string;
+  date?: any;
+  home_team_id?: ITeamStats;
   home_team_score?: string;
-  season?: any;
-  visitor_team_id?: string;
+  season?: string [];
+  visitor_team_id?: ITeamStats;
   visitor_team_score?: string;
-  selected: boolean;
+  selected?: boolean;
 }
 
-// export class GameStats implements IGameStats {
-//   constructor(
-//     public id?: number,
-//     public date?: string,
-//     // tslint:disable-next-line: variable-name
-//     public home_team_id?: string,
-//     // tslint:disable-next-line: variable-name
-//     public home_team_score?: string,
-//     public season?: any,
-//     // eslint-disable-next-line @typescript-eslint/tslint/config
-//     // tslint:disable-next-line: variable-name
-//     public visitor_team_id?: string,
-//     // tslint:disable-next-line: variable-name
-//     public visitor_team_score?: string
-//   ) {}
-// }
+export class GameStats implements IGameStats {
+  constructor(
+    public id?: number,
+    public date?: any,
+    // tslint:disable-next-line: variable-name
+    public home_team_id?: ITeamStats,
+    // tslint:disable-next-line: variable-name
+    public home_team_score?: string,
+    public season?: string [],
+    // eslint-disable-next-line @typescript-eslint/tslint/config
+    // tslint:disable-next-line: variable-name
+    public visitor_team_id?: ITeamStats,
+    // tslint:disable-next-line: variable-name
+    public visitor_team_score?: string,
+    public selected?: boolean
+  ) {}
+}
 
 export interface IPlayerStats {
   id?: number;
   first_name?: string;
   last_name?: string;
   position?: string;
-  team_id?: string;
+  team_id?: ITeam;
 }
 
-// export class PlayerStats implements IPlayerStats {
-//   constructor(
-//     public id?: number,
-//     // tslint:disable-next-line: variable-name
-//     public first_name?: string,
-//     // tslint:disable-next-line: variable-name
-//     public last_name?: string,
-//     public position?: string,
-//     // tslint:disable-next-line: variable-name
-//     public team_id?: string
-//   ) {}
-// }
+export class PlayerStats implements IPlayerStats {
+  constructor(
+    public id?: number,
+    // tslint:disable-next-line: variable-name
+    public first_name?: string,
+    // tslint:disable-next-line: variable-name
+    public last_name?: string,
+    public position?: string,
+    // tslint:disable-next-line: variable-name
+    public team_id?: ITeam
+  ) {}
+}
 
 export interface ITeamStats {
   id?: number;
@@ -118,15 +120,15 @@ export interface ITeamStats {
   name?: string;
 }
 
-// export class TeamStats implements ITeamStats {
-//   constructor(
-//     public id?: number,
-//     public abbreviation?: string,
-//     public city?: string,
-//     public conference?: string,
-//     public division?: string,
-//     // tslint:disable-next-line: variable-name
-//     public full_name?: string,
-//     public name?: string
-//   ) {}
-// }
+export class TeamStats implements ITeamStats {
+  constructor(
+    public id?: number,
+    public abbreviation?: string,
+    public city?: string,
+    public conference?: string,
+    public division?: string,
+    // tslint:disable-next-line: variable-name
+    public full_name?: string,
+    public name?: string
+  ) {}
+}
