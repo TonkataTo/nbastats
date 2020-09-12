@@ -2,15 +2,34 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { SERVER_API_URL } from './app.constants';
 import { Injectable } from '@angular/core';
 import { CustomRange } from './shared/custom-range.model';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { IGame, Game } from './all-games/game.model';
+import { GameStats } from './all-stats/stats.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AllGamesService {
+  m = new Map<number, GameStats>();
 
   public resourceUrl = SERVER_API_URL + 'api/v1/games';
-  constructor(private http: HttpClient) { }
+  private gameDetail$: BehaviorSubject<Game> = new BehaviorSubject(null);
+
+  constructor(private http: HttpClient) {
+   // this.m.set(1, new GameStats(....)) // adds to map
+   // this.m.set(2, new GameStats(....)) // adds to map
+   // this.m.delete(2); //removes from map
+  //  this.m.get(1); // get value in this case game stats
+  }
+
+  getGameDetails(): Observable<Game> {
+      return this.gameDetail$.asObservable();
+  }
+
+  setGameDetails(game: Game) {
+      this.gameDetail$.next(game);
+  }
+
 
   query(range: CustomRange, teamIds: string[]) {
     let params = new HttpParams();
@@ -25,29 +44,8 @@ export class AllGamesService {
     }
     return this.http.get(this.resourceUrl, {params});
   }
+  find(gameId: number) {
+    const url = 'https://www.balldontlie.io/api/v1/games/' + gameId;
+    return this.http.get(url);
+  }
 }
-
-// export class ToDoService {
-//   // tslint:disable-next-line: variable-name
-//   private _todos = new BehaviorSubject<ToDo[]>([]);
-//   private baseUrl = 'https://www.balldontlie.io/api/v1/stats';
-//   private dataStore: { todos: ToDo[] } = { todos: [] }; // store our data in memory
-//   readonly todos = this._todos.asObservable();
-
-//   constructor(private http: HttpClient) {} // using Angular Dependency Injection
-
-//   get todos() {
-//     return this._todos.asObservable();
-//   }
-//   loadAll() {
-//     this.http.get(`${this.baseUrl}/todos`).subscribe(
-//       data => {
-//         this.dataStore.todos = data;
-//         this._todos.next(Object.assign({}, this.dataStore).todos);
-//       },
-//       error => console.log('Could not load todos.')
-//     );
-//   }
-// }
-// // Push a new copy of our todo list to all Subscribers.
-// this._todos.next(Object.assign({}, this.dataStore).todos);

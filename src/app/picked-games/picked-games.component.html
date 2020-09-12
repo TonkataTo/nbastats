@@ -1,0 +1,21 @@
+
+<!-- <form [formGroup]="form" (ngSubmit)="submit()">
+  <label formArrayName="games" *ngFor="let game of gamesFormArray.controls; let i = index">
+    <input type="checkbox" [formControlName]="i">
+    {{selectedGames[i].id}}
+  </label>
+  <button>submit</button>
+</form> -->
+
+
+<div class="games-wrap">
+  <div class="game-wrap" *ngFor="let game of games">
+    <div> <input type="checkbox" name="checkedItem"> Game Id: {{game.id}}</div>
+    <div>Date: {{game.date}}</div>
+    <div>Home Team: {{game.home_team}}</div>
+    <div>Home Score: {{game.home_team_score}}</div>
+    <div>Visitor Team: {{game.visitor_team}}</div>
+    <div>Visitor Score: {{game.visitor_team_score}}</div>
+    <div>Season: {{game.season}}</div>
+  </div>
+</div>

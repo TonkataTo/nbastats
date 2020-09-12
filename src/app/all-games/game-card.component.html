@@ -1,0 +1,18 @@
+<div>
+  <span>
+    <div><span  class="game-date-label">Date:</span> {{game.date}}</div>
+    <div>Home team score: {{game.home_team_score}}</div>
+    <div>Visitors team score: {{game.visitor_team_score}}</div>
+    <div>Home team: {{game.home_team.full_name}}</div>
+    <div>Visitor team: {{game.visitor_team.full_name}}</div>
+  </span>
+  <span *ngIf="isFullDetails === true">
+    <div>Season: {{game.season}}</div>
+    <div>Period: {{game.period}}</div>
+    <div>Status: {{game.status}}</div>
+    <div>Time: {{game.time}}</div>
+    <div>Postseason: {{game.postseason}}</div>
+  </span>
+</div>
+
+

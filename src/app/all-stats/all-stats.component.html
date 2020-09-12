@@ -23,9 +23,11 @@
 [(ngModel)]="search" name="search">
 <p *ngIf="search?.length>maxSearchString" class="error-input">Search text too long</p>
 <div class="teams-wrap">
-  <div class="team-wrap" *ngFor="let playerStat of playerStats">
-    <input type="checkbox" name="checkedItem">
-    <div>Player: {{playerStat.id}}</div>
+  <div class="team-wrap" *ngFor="let playerStat of playerStats | statsFilterPipe: search">
+    <div>
+      <input type="checkbox" name="checkedItem">
+      <img src="assets/img/nba-player.jpg" style="width:3em;height:3em;"> ID: {{playerStat.id}}
+    </div>
     <div>First Name: {{playerStat.first_name}}</div>
     <div>Laste Name: {{playerStat.last_name}}</div>
     <div>Position: {{playerStat.position}}</div>

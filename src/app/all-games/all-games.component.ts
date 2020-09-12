@@ -1,9 +1,10 @@
 import { CustomRange } from './../shared/custom-range.model';
 import { AllGamesService } from './../all-games.service';
-import { IGame } from './game.model';
+import { IGame, Game } from './game.model';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { MIN_SEARCH_STRING, MAX_SEARCH_STRING } from '../app.constants';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-all-games',
@@ -21,21 +22,18 @@ export class AllGamesComponent implements OnInit {
   search: string;
   minSearchString = MIN_SEARCH_STRING;
   maxSearchString = MAX_SEARCH_STRING;
+  selectedGames: IGame;
 
-  constructor(private allGamesService: AllGamesService) {
+  constructor(private allGamesService: AllGamesService,
+              private router: Router) {
     this.getAllGames();
   }
 
   ngOnInit(): void {
-      // this.todos = this.todoService.todos; // subscribe to entire collection
+  }
 
-      // // subscribe to only one todo
-      // this.singleTodo$ = this.todoService.todos.pipe(
-      //   map(todos => todos.find(item => item.id === '1'))
-      // );
-
-      // this.todoService.loadAll();    // load all todos
-      // this.todoService.load('1');    // load only todo with id of '1'
+  onSelect(game: IGame): void {
+    this.selectedGames = game;
   }
 
   getAllGames(){
@@ -54,5 +52,9 @@ export class AllGamesComponent implements OnInit {
     }
     // Set teamIds must be set in separate function
     this.getAllGames();
+  }
+  goToGamePage(game: Game){
+    this.allGamesService.setGameDetails(game);
+    this.router.navigate(['/game-details', game.id]);
   }
 }

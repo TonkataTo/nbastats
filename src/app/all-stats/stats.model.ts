@@ -90,23 +90,23 @@ export class GameStats implements IGameStats {
 }
 
 export interface IPlayerStats {
-  id?: number;
+  id?: any;
   first_name?: string;
   last_name?: string;
   position?: string;
-  team_id?: ITeam;
+  team_id?: any;
 }
 
 export class PlayerStats implements IPlayerStats {
   constructor(
-    public id?: number,
+    public id?: any,
     // tslint:disable-next-line: variable-name
     public first_name?: string,
     // tslint:disable-next-line: variable-name
     public last_name?: string,
     public position?: string,
     // tslint:disable-next-line: variable-name
-    public team_id?: ITeam
+    public team_id?: any
   ) {}
 }
 
