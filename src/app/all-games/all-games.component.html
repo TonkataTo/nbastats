@@ -18,12 +18,8 @@
 [(ngModel)]="search" name="search">
 <p *ngIf="search?.length>maxSearchString" class="error-input">Search text too long</p>
 
-<!-- <div>
-  <button class="submit-button" type="submit">Show games</button>
-</div> -->
-
 <div class="teams-wrap">
-  <div class="team-wrap" *ngFor="let game of games">
+  <div class="team-wrap" *ngFor="let game of games | gameFilterPipe: search">
     <input type="checkbox" name="checkedItem">
     <div>
       <img src="assets/img/basket-ball.png" style="width:1em;height:1em;"> Id: {{game.id}}
@@ -32,67 +28,3 @@
     <div (click)="goToGamePage(game)" class="game-details-btn"> More details</div>
   </div>
 </div>
-
-<!-- <ul>
-  <li *ngFor="let game of games"
-    [class.selected]="game === selectedGames"
-    (click)="onSelect(game)">
-    <span>{{game.id}}</span> {{game.home_team.full_name}}
-  </li>
-</ul>
-
-<div *ngIf="selectedGames">
-
-  <h2>{{selectedGames.id | uppercase}} Details</h2>
-  <div><span>id: </span>{{selectedGames.id}}</div>
-  <div>
-    <label>name:
-      <input [(ngModel)]="selectedGames.home_team.full_name" placeholder="name"/>
-    </label>
-  </div>
-
-</div> -->
-
-
-<!-- <div> -->
-
-  <!-- Heading Title -->
-
-  <!-- <h4 class="app-heading">Select Available Games Below:</h4> -->
-
-  <!-- Search Field -->
-
-  <!-- <div>
-    <div class="filter-wrap">
-      <input [(ngModel)]="searchText" placeholder="Filter Games" class="filter-input">
-      <span class="filter-clear" *ngIf="searchText.length>0" (click)="clearFilter()">X</span>
-    </div>
-  </div> -->
-  <!-- Clear Link -->
-
-  <!-- <div class="clear-selection" title="Click to Clear Selections" (click)="clearSelection()" *ngIf="selectedCount">Clear Selection</div> -->
-
-  <!-- Game List -->
-
-  <!-- <ul class="game-list">
-    <li *ngFor="let g of games | statsFilterPipe : searchText" class="game-item">
-      <input (change)="getSelected()" type="checkbox"
-               name="games"
-               value="{{g.id}}"
-               [(ngModel)]="g.selected"/>
-      <span class="game-text">{{g.name}}</span>
-    </li>
-  </ul> -->
-
-  <!-- Selected Games-->
-
-  <!-- <div class="selected-games-wrap">
-      <div class="selected-game" *ngFor="let s of selectedGames" >
-        <span>{{s.name}} <span class="delete-game" (click)="deleteGame(s.id)" title="Click to delete">X</span></span>
-      </div>
-  </div>
-
-</div> -->
-
-<!-- <input type="checkbox" id="scales" name="search" checked>
-<label for="scales">Scales</label> -->

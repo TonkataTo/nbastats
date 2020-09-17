@@ -1,3 +1,4 @@
+import { GameFilterPipe } from './../games-filter.pipe';
 import { GameCardComponent } from './game-card.component';
 import { AllGamesRoutingModule } from './all-games-routing.module';
 import { AllGamesComponent } from './all-games.component';
@@ -10,11 +11,9 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { GameDetailsComponent } from './game-details.component';
-// import { GameFilterPipe } from '../games-filter.pipe';
-// import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
-  declarations: [AllGamesComponent, GameDetailsComponent, GameCardComponent],
+  declarations: [AllGamesComponent, GameDetailsComponent, GameCardComponent, GameFilterPipe],
 
   bootstrap: [AllGamesComponent],
   imports: [

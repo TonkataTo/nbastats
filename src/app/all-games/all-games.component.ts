@@ -4,7 +4,7 @@ import { IGame, Game } from './game.model';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { MIN_SEARCH_STRING, MAX_SEARCH_STRING } from '../app.constants';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-all-games',
@@ -23,6 +23,7 @@ export class AllGamesComponent implements OnInit {
   minSearchString = MIN_SEARCH_STRING;
   maxSearchString = MAX_SEARCH_STRING;
   selectedGames: IGame;
+
 
   constructor(private allGamesService: AllGamesService,
               private router: Router) {
