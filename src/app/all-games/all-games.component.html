@@ -1,3 +1,12 @@
+<div *ngIf="highlightedGames && highlightedGames.size>0">
+  <div *ngFor="let key of highlightedGames.keys()">
+    <div>{{key}} </div>
+    <div>{{highlightedGames.get(key).home_team}} </div>
+    <div>{{highlightedGames.get(key).visitor_team}} </div>
+    <div>{{highlightedGames.get(key).date}} </div>
+  </div>
+  </div>
+
 <form class="container" (ngSubmit)="filterGames()">
   <mat-form-field appearance="fill">
     <mat-label>Enter a date range</mat-label>
@@ -10,6 +19,10 @@
     <mat-error *ngIf="range.controls.start.hasError('matStartDateInvalid')">Invalid start date</mat-error>
     <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
   </mat-form-field>
+
+<td>
+</td>
+
   <button class="submit-button" type="submit">Show games</button>
 
 </form>
@@ -20,9 +33,12 @@
 
 <div class="teams-wrap">
   <div class="team-wrap" *ngFor="let game of games | gameFilterPipe: search">
-    <input type="checkbox" name="checkedItem">
+    <input type="checkbox" name="checkedItem" (click)="toggleGame(game)"  [checked]="highlightedGames && highlightedGames.size>0 && highlightedGames.get(game.id)">
     <div>
-      <img src="assets/img/basket-ball.png" style="width:1em;height:1em;"> Id: {{game.id}}
+      <img src="assets/img/basket-ball.png" style="width:1em;height:1em;">
+      <app-selected-games [game]='games' (gameClicked)='onGameClicked($event)'>
+      <!-- Id: {{game.id}} -->
+    </app-selected-games>
     </div>
     <app-game-card *ngIf="game" [game]="game"></app-game-card>
     <div (click)="goToGamePage(game)" class="game-details-btn"> More details</div>

@@ -1,17 +1,19 @@
 import { CustomRange } from './../shared/custom-range.model';
 import { AllGamesService } from './../all-games.service';
 import { IGame, Game } from './game.model';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { MIN_SEARCH_STRING, MAX_SEARCH_STRING } from '../app.constants';
 import { Router } from '@angular/router';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-all-games',
   templateUrl: './all-games.component.html',
   styleUrls: ['./all-games.component.css']
 })
-export class AllGamesComponent implements OnInit {
+export class AllGamesComponent implements OnInit, OnDestroy {
+  // onNotify(message: string): void(){}
   range = new FormGroup({
     start: new FormControl(),
     end: new FormControl()
@@ -23,6 +25,9 @@ export class AllGamesComponent implements OnInit {
   minSearchString = MIN_SEARCH_STRING;
   maxSearchString = MAX_SEARCH_STRING;
   selectedGames: IGame;
+  selectedGame: IGame;
+  unsubscribe$: Subject<boolean> = new Subject();
+  highlightedGames = new Map<number, Game>();
 
 
   constructor(private allGamesService: AllGamesService,
@@ -30,11 +35,18 @@ export class AllGamesComponent implements OnInit {
     this.getAllGames();
   }
 
+  onGameClicked(game: IGame): void {
+    this.selectedGames = game;
+  }
+
   ngOnInit(): void {
+    this.allGamesService.getHighlightedGames().subscribe((data) => {
+      this.highlightedGames = data;
+    });
   }
 
   onSelect(game: IGame): void {
-    this.selectedGames = game;
+    this.selectedGame = game;
   }
 
   getAllGames(){
@@ -54,8 +66,17 @@ export class AllGamesComponent implements OnInit {
     // Set teamIds must be set in separate function
     this.getAllGames();
   }
-  goToGamePage(game: Game){
+  goToGamePage(game: Game) {
     this.allGamesService.setGameDetails(game);
     this.router.navigate(['/game-details', game.id]);
   }
+
+  toggleGame(game: Game) {
+    this.allGamesService.toggleHighlightedGames(game);
+  }
+  ngOnDestroy() {
+    this.unsubscribe$.next(true);
+    this.unsubscribe$.complete();
+  }
+
 }

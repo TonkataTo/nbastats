@@ -2,7 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { SERVER_API_URL } from './app.constants';
 import { Injectable } from '@angular/core';
 import { CustomRange } from './shared/custom-range.model';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { IGame, Game } from './all-games/game.model';
 import { GameStats } from './all-stats/stats.model';
 
@@ -14,6 +14,7 @@ export class AllGamesService {
 
   public resourceUrl = SERVER_API_URL + 'api/v1/games';
   private gameDetail$: BehaviorSubject<Game> = new BehaviorSubject(null);
+  private hightlightedGames$: BehaviorSubject<Map<number, Game>> = new BehaviorSubject(null);
 
   constructor(private http: HttpClient) {
    // this.m.set(1, new GameStats(....)) // adds to map
@@ -28,6 +29,28 @@ export class AllGamesService {
 
   setGameDetails(game: Game) {
       this.gameDetail$.next(game);
+  }
+
+  getHighlightedGames(): Observable<Map<number, Game>> {
+    return this.hightlightedGames$.asObservable();
+  }
+
+  toggleHighlightedGames(game: Game) {
+    let newGameMap = new Map<number, Game>();
+    const sub = this.getHighlightedGames().subscribe((hightlightedGames) => {
+      newGameMap = hightlightedGames !== null ? hightlightedGames : new Map<number, Game>();
+      if (!newGameMap.get(game.id)  || newGameMap.size === 0) {
+        newGameMap.set(game.id, game);
+      } else {
+        newGameMap.delete(game.id);
+      }
+    });
+    sub.unsubscribe();
+    this.hightlightedGames$.next(newGameMap);
+  }
+  // TODO:
+  removeHighlightedGame(game: Game) {
+
   }
 
 

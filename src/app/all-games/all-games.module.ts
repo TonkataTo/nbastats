@@ -1,3 +1,4 @@
+import { SelectedGamesComponent } from './../shared/selected-games.component';
 import { GameFilterPipe } from './../games-filter.pipe';
 import { GameCardComponent } from './game-card.component';
 import { AllGamesRoutingModule } from './all-games-routing.module';
@@ -13,7 +14,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { GameDetailsComponent } from './game-details.component';
 
 @NgModule({
-  declarations: [AllGamesComponent, GameDetailsComponent, GameCardComponent, GameFilterPipe],
+  declarations: [AllGamesComponent, GameDetailsComponent, GameCardComponent, GameFilterPipe, SelectedGamesComponent],
 
   bootstrap: [AllGamesComponent],
   imports: [
