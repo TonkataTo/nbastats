@@ -1,3 +1,10 @@
 .game-date-label{
   font-weight: bold;
 }
+
+.truncate {
+  width: 215px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

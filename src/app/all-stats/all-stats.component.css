@@ -13,3 +13,10 @@
   display: table;
   margin: 0 auto;
 }
+
+.truncate {
+  width: 215px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

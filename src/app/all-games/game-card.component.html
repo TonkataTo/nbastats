@@ -1,10 +1,10 @@
 <div>
   <span>
-    <div><span  class="game-date-label">Date:</span> {{game.date}}</div>
+    <div><span  class="game-date-label">Date:</span> {{game.date.substring(0, 10)}}</div>
     <div>Home team score: {{game.home_team_score}}</div>
     <div>Visitors team score: {{game.visitor_team_score}}</div>
-    <div>Home team: {{game.home_team.full_name}}</div>
-    <div>Visitor team: {{game.visitor_team.full_name}}</div>
+    <div class="truncate">Home team: {{game.home_team.full_name}}</div>
+    <div class="truncate">Visitor team: {{game.visitor_team.full_name}}</div>
   </span>
   <span *ngIf="isFullDetails === true">
     <div>Season: {{game.season}}</div>

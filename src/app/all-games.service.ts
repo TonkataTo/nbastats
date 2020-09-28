@@ -2,8 +2,8 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { SERVER_API_URL } from './app.constants';
 import { Injectable } from '@angular/core';
 import { CustomRange } from './shared/custom-range.model';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
-import { IGame, Game } from './all-games/game.model';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { Game } from './all-games/game.model';
 import { GameStats } from './all-stats/stats.model';
 
 @Injectable({
@@ -50,7 +50,15 @@ export class AllGamesService {
   }
   // TODO:
   removeHighlightedGame(game: Game) {
-
+    let RemoveGameMap = new Map<number, Game>();
+    const sub = this.getHighlightedGames().subscribe((hightlightedGames) => {
+      RemoveGameMap = hightlightedGames !== null ? hightlightedGames : new Map<number, Game>();
+      if (RemoveGameMap.get(game.id)  || RemoveGameMap.size > 0) {
+        RemoveGameMap.delete(game.id);
+      }
+    });
+    sub.unsubscribe();
+    this.hightlightedGames$.next(RemoveGameMap);
   }
 
 

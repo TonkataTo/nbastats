@@ -13,3 +13,14 @@
   display: table;
   margin: 0 auto;
 }
+
+.team-wrap:hover {
+  transform: scale(1.15);
+}
+
+.truncate {
+  width: 215px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

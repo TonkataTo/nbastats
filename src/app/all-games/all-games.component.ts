@@ -74,6 +74,9 @@ export class AllGamesComponent implements OnInit, OnDestroy {
   toggleGame(game: Game) {
     this.allGamesService.toggleHighlightedGames(game);
   }
+  removeGame(game: Game) {
+    this.allGamesService.removeHighlightedGame(game);
+  }
   ngOnDestroy() {
     this.unsubscribe$.next(true);
     this.unsubscribe$.complete();

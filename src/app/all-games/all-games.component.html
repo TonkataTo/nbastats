@@ -1,9 +1,12 @@
 <div *ngIf="highlightedGames && highlightedGames.size>0">
   <div *ngFor="let key of highlightedGames.keys()">
-    <div>{{key}} </div>
-    <div>{{highlightedGames.get(key).home_team}} </div>
-    <div>{{highlightedGames.get(key).visitor_team}} </div>
-    <div>{{highlightedGames.get(key).date}} </div>
+    <div>
+      <!-- <input type="checkbox" name="removeItem" (click)="removeGame(key)"> -->
+      <div>{{key}} </div>
+      <div>{{highlightedGames.get(key).home_team.full_name}} </div>
+      <div>{{highlightedGames.get(key).visitor_team.full_name}} </div>
+      <div>{{highlightedGames.get(key).date}} </div>
+    </div>
   </div>
   </div>
 
@@ -36,11 +39,9 @@
     <input type="checkbox" name="checkedItem" (click)="toggleGame(game)"  [checked]="highlightedGames && highlightedGames.size>0 && highlightedGames.get(game.id)">
     <div>
       <img src="assets/img/basket-ball.png" style="width:1em;height:1em;">
-      <app-selected-games [game]='games' (gameClicked)='onGameClicked($event)'>
-      <!-- Id: {{game.id}} -->
-    </app-selected-games>
+      Id: {{game.id}}
     </div>
-    <app-game-card *ngIf="game" [game]="game"></app-game-card>
+    <app-game-card *ngIf="game" [game]="game" class="truncate"></app-game-card>
     <div (click)="goToGamePage(game)" class="game-details-btn"> More details</div>
   </div>
 </div>
