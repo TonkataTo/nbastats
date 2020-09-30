@@ -14,8 +14,22 @@
   margin: 0 auto;
 }
 
+.negative-margin {
+  margin-top: -6.5em;
+  font-weight: bold;
+}
+
 .team-wrap:hover {
   transform: scale(1.15);
+}
+
+.team-logo {
+  background-repeat: no-repeat;
+  position: relative;
+  left: 9em;
+  top: -0.5em;
+  object-fit: contain;
+  display: inline-block;
 }
 
 .truncate {

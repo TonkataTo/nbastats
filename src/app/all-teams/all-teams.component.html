@@ -3,12 +3,17 @@
 <p *ngIf="search?.length>maxSearchString" class="error-input">Search text too long</p>
 <div class="teams-wrap">
   <div class="team-wrap" *ngFor="let team of teams | teamFilterPipe: search">
-    <div>Team Id: {{team.id}}</div>
-    <div>Abbreviation: {{team.abbreviation}}</div>
-    <div>City: {{team.city}}</div>
-    <div>Conference: {{team.conference}}</div>
-    <div>Division: {{team.division}}</div>
-    <div class="truncate">FullName: {{team.full_name}}</div>
-    <div>Name: {{team.name}}</div>
+    <div class="team-logo">
+      <img src="assets/img/teams/{{team.name}}.png" style="width: 90px">
+    </div>
+    <div class="negative-margin">
+      <div>Team Id: {{team.id}}</div>
+      <div>Abbreviation: {{team.abbreviation}}</div>
+      <div>City: {{team.city}}</div>
+      <div>Conference: {{team.conference}}</div>
+      <div>Division: {{team.division}}</div>
+      <div class="truncate">FullName: {{team.full_name}}</div>
+      <div>Name: {{team.name}}</div>
+    </div>
   </div>
 </div>
