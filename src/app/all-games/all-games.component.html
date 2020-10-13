@@ -26,12 +26,23 @@
 <td>
 </td>
 
+<form class="example-form">
+
+    <mat-label>Selected Team</mat-label>
+    <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+        {{option.full_name}}
+      </mat-option>
+    </mat-autocomplete>
+</form>
+
   <button class="submit-button" type="submit">Show games</button>
 
 </form>
 <p>Selected range: {{range.value | json}}</p>
-<input type="text" class="search-input" placeholder = "min 2 letters" autocomplete="off"
-[(ngModel)]="search" name="search">
+<!-- <input type="text" class="search-input" placeholder = "min 2 letters" autocomplete="off"
+[(ngModel)]="search" name="search"> -->
 <p *ngIf="search?.length>maxSearchString" class="error-input">Search text too long</p>
 
 <div class="teams-wrap">

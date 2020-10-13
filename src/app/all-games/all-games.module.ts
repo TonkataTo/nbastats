@@ -12,6 +12,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { GameDetailsComponent } from './game-details.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 @NgModule({
   declarations: [AllGamesComponent, GameDetailsComponent, GameCardComponent, GameFilterPipe, SelectedGamesComponent],
@@ -25,7 +26,8 @@ import { GameDetailsComponent } from './game-details.component';
     MatNativeDateModule,
     MatSliderModule,
     ReactiveFormsModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatAutocompleteModule
   ],
   exports: [GameCardComponent]
 })
