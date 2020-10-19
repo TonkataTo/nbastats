@@ -11,6 +11,9 @@
 .submit-button {
   display: table;
   margin: 0 auto;
+  border-radius: 16px;
+  border: 6px double #1976d2;
+  outline-width:0px;
 }
 
 html, body { height: 100%; }

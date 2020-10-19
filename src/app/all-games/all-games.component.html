@@ -1,14 +1,16 @@
 <div *ngIf="highlightedGames && highlightedGames.size>0">
-  <div *ngFor="let key of highlightedGames.keys()">
+  <div class="selected-games" *ngFor="let key of highlightedGames.keys()">
     <div>
-      <!-- <input type="checkbox" name="removeItem" (click)="removeGame(key)"> -->
-      <div>{{key}} </div>
-      <div>{{highlightedGames.get(key).home_team.full_name}} </div>
-      <div>{{highlightedGames.get(key).visitor_team.full_name}} </div>
-      <div>{{highlightedGames.get(key).date}} </div>
+      <a type="checkbox" name="removeItem" class="x-button" (click)="removeGame(highlightedGames.get(key))">x</a>
+      <!-- <div>{{key}} </div> -->
+      <div class="truncate"><span  class="game-date-label">Home team: </span>{{highlightedGames.get(key).home_team.full_name}} </div>
+      <div class="truncate"><span  class="game-date-label">Visitor team: </span>{{highlightedGames.get(key).visitor_team.full_name}} </div>
+      <div><span  class="game-date-label">Date:</span> {{highlightedGames.get(key).date.substring(0, 10)}} </div>
     </div>
   </div>
-  </div>
+</div>
+
+<button class="styled-button" type="submit">Show Player Stats</button>
 
 <form class="container" (ngSubmit)="filterGames()">
   <mat-form-field appearance="fill">
@@ -37,7 +39,7 @@
     </mat-autocomplete>
 </form>
 
-  <button class="submit-button" type="submit">Show games</button>
+<button class="styled-button" type="submit">Show games</button>
 
 </form>
 <p>Selected range: {{range.value | json}}</p>

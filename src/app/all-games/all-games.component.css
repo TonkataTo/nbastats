@@ -13,9 +13,81 @@
   display: table;
   margin: 0 auto;
 }
-.game-details-btn{
+
+.game-details-btn {
   cursor: pointer;
   text-decoration: underline;
   font-size: 1.1em;
   margin-top: 1.1em;
 }
+
+.x-button {
+  text-align: right;
+  color: red;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: larger;
+}
+
+/* .selected-teams {
+  border: 4px double #1976d2;
+  margin: 1em;
+  padding-top: 0.22em;
+  padding-bottom: 0.35em;
+  padding-left: 0.35em;
+  padding-right: 0.35em;
+  width: 14em;
+  min-height: 4em;
+  border-radius: 16px;
+  display: inline-block;
+} */
+
+.selected-games {
+  border: 4px double #1976d2;
+  margin: 1em;
+  padding-top: 0.22em;
+  padding-bottom: 0.35em;
+  padding-left: 0.35em;
+  padding-right: 0.35em;
+  width: 14em;
+  min-height: 4em;
+  border-radius: 16px;
+  display: inline-block;
+}
+
+.game-date-label{
+  font-weight: bold;
+}
+
+.truncate {
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.styled-button{
+  display: table;
+  margin: 0 auto;
+  padding:0.3em 1.2em;
+  border-radius:2em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-family:'Roboto',sans-serif;
+  font-weight:300;
+  color:#FFFFFF;
+  background-color: #1976d2;
+  text-align:center;
+  transition: all 0.2s;
+  font-size: 0.9em;
+  outline-width:0px;
+  }
+.styled-button:hover{
+  background-color:#4095c6;
+  }
+  @media all and (max-width:30em){
+.styled-button{
+  display:block;
+  margin:0.2em auto;
+  }
+  }

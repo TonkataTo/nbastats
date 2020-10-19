@@ -1,5 +1,5 @@
 import { AllTeamsService } from './../all-teams.service';
-import { ITeam, Team } from './../all-teams/team.model';
+import { ITeam } from './../all-teams/team.model';
 import { CustomRange } from './../shared/custom-range.model';
 import { AllGamesService } from './../all-games.service';
 import { IGame, Game } from './game.model';
@@ -88,6 +88,10 @@ export class AllGamesComponent implements OnInit, OnDestroy {
   goToGamePage(game: Game) {
     this.allGamesService.setGameDetails(game);
     this.router.navigate(['/game-details', game.id]);
+  }
+
+  goToPlayersStatsPage() {
+
   }
 
   toggleGame(game: Game) {

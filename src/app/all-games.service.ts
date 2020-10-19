@@ -14,6 +14,7 @@ export class AllGamesService {
 
   public resourceUrl = SERVER_API_URL + 'api/v1/games';
   private gameDetail$: BehaviorSubject<Game> = new BehaviorSubject(null);
+  private playerDetail$: BehaviorSubject<Game> = new BehaviorSubject(null);
   private hightlightedGames$: BehaviorSubject<Map<number, Game>> = new BehaviorSubject(null);
 
   constructor(private http: HttpClient) {
@@ -29,6 +30,14 @@ export class AllGamesService {
 
   setGameDetails(game: Game) {
       this.gameDetail$.next(game);
+  }
+
+  getPlayerDetails(): Observable<Game> {
+    return this.playerDetail$.asObservable();
+  }
+
+  setPlayerDetails(game: Game) {
+      this.playerDetail$.next(game);
   }
 
   getHighlightedGames(): Observable<Map<number, Game>> {
@@ -48,17 +57,14 @@ export class AllGamesService {
     sub.unsubscribe();
     this.hightlightedGames$.next(newGameMap);
   }
-  // TODO:
   removeHighlightedGame(game: Game) {
-    let RemoveGameMap = new Map<number, Game>();
+    let removeGameMap = new Map<number, Game>();
     const sub = this.getHighlightedGames().subscribe((hightlightedGames) => {
-      RemoveGameMap = hightlightedGames !== null ? hightlightedGames : new Map<number, Game>();
-      if (RemoveGameMap.get(game.id)  || RemoveGameMap.size > 0) {
-        RemoveGameMap.delete(game.id);
-      }
+      removeGameMap = hightlightedGames;
+      removeGameMap.delete(game.id);
     });
     sub.unsubscribe();
-    this.hightlightedGames$.next(RemoveGameMap);
+    this.hightlightedGames$.next(removeGameMap);
   }
 
 
