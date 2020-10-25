@@ -12,10 +12,12 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { GameDetailsComponent } from './game-details.component';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { PlayerDetailsComponent } from './player-details.component';
 
 @NgModule({
-  declarations: [AllGamesComponent, GameDetailsComponent, GameCardComponent, GameFilterPipe, SelectedGamesComponent],
+  declarations: [AllGamesComponent, PlayerDetailsComponent, GameDetailsComponent,
+    GameCardComponent, GameFilterPipe, SelectedGamesComponent],
 
   bootstrap: [AllGamesComponent],
   imports: [

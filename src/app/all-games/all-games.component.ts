@@ -9,6 +9,7 @@ import { MIN_SEARCH_STRING, MAX_SEARCH_STRING } from '../app.constants';
 import { Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
+import { AllStatsService } from '../all-stats.service';
 @Component({
   selector: 'app-all-games',
   templateUrl: './all-games.component.html',
@@ -33,11 +34,13 @@ export class AllGamesComponent implements OnInit, OnDestroy {
   myControl = new FormControl();
   options: ITeam[] = [];
   filteredOptions: Observable<ITeam[]>;
+  keysOfGames: any;
 
 
   constructor(private allGamesService: AllGamesService,
               private router: Router,
-              private allTeamsService: AllTeamsService) {
+              private allTeamsService: AllTeamsService,
+              private allStatsService: AllStatsService) {
     this.getAllGames();
     allTeamsService.query().subscribe((res: any) => {
       this.options = res.data;
@@ -90,8 +93,9 @@ export class AllGamesComponent implements OnInit, OnDestroy {
     this.router.navigate(['/game-details', game.id]);
   }
 
-  goToPlayersStatsPage() {
-
+  goToPlayersStatsPage(highlightedGames: Game) {
+    this.allGamesService.getHighlightedGames();
+    this.router.navigate(['/player-details', highlightedGames]);
   }
 
   toggleGame(game: Game) {
@@ -118,6 +122,10 @@ export class AllGamesComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.unsubscribe$.next(true);
     this.unsubscribe$.complete();
+  }
+
+  getKeys() {
+    this.keysOfGames = this.highlightedGames?.keys();
   }
 
 }

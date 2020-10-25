@@ -1,0 +1,12 @@
+.selected-games {
+  border: 4px double #1976d2;
+  margin: 1em;
+  padding-top: 0.22em;
+  padding-bottom: 0.35em;
+  padding-left: 0.35em;
+  padding-right: 0.35em;
+  width: 14em;
+  min-height: 4em;
+  border-radius: 16px;
+  display: inline-block;
+}

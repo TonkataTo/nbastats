@@ -33,20 +33,20 @@ export class AllStatsComponent implements OnInit {
   selectedItems: string [];
 
   constructor(private allStatsService: AllStatsService) {
-    this.getAllPlayersInfo();
+    // this.getAllPlayersInfo();
   }
 
   ngOnInit(): void {
     // this.selectedItems = new Array<string>();
   }
 
-  getAllPlayersInfo(){
-    this.allStatsService.query().subscribe((res: any) => {
-      // eslint-disable-next-line @typescript-eslint/camelcase
-      this.playerStats = res.data.map(stat => stat.player);
-      // this.teams = res.data;
-    });
-  }
+  // getAllPlayersInfo(){
+  //   this.allStatsService.query().subscribe((res: any) => {
+  //     // eslint-disable-next-line @typescript-eslint/camelcase
+  //     this.playerStats = res.data.map(stat => stat.player);
+  //     // this.teams = res.data;
+  //   });
+  // }
 
   // getGamesIds(e:any,id:string) {
 
@@ -99,5 +99,4 @@ export class AllStatsComponent implements OnInit {
   // clearFilter() {
   //   this.searchText = '';
   // }
-
 }

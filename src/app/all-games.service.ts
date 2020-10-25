@@ -10,7 +10,6 @@ import { GameStats } from './all-stats/stats.model';
   providedIn: 'root'
 })
 export class AllGamesService {
-  m = new Map<number, GameStats>();
 
   public resourceUrl = SERVER_API_URL + 'api/v1/games';
   private gameDetail$: BehaviorSubject<Game> = new BehaviorSubject(null);
@@ -30,14 +29,6 @@ export class AllGamesService {
 
   setGameDetails(game: Game) {
       this.gameDetail$.next(game);
-  }
-
-  getPlayerDetails(): Observable<Game> {
-    return this.playerDetail$.asObservable();
-  }
-
-  setPlayerDetails(game: Game) {
-      this.playerDetail$.next(game);
   }
 
   getHighlightedGames(): Observable<Map<number, Game>> {
