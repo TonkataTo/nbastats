@@ -14,9 +14,21 @@
   margin: 0 auto;
 }
 
+
+
+.chosen::selection {
+  background-color: #5abb3c;
+  color: white;
+}
+
 .truncate {
   width: 215px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.truncate::selection {
+  background-color: #5abb3c;
+  color: white;
 }

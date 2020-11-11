@@ -10,12 +10,12 @@
 
 <div class="games-wrap">
   <div class="game-wrap" *ngFor="let game of games">
-    <div> <input type="checkbox" name="checkedItem"> Game Id: {{game.id}}</div>
-    <div>Date: {{game.date.substring(0, 10)}}</div>
-    <div class="truncate">Home Team: {{game.home_team.full_name}}</div>
-    <div>Home Score: {{game.home_team_score}}</div>
-    <div class="truncate">Visitor Team: {{game.visitor_team.full_name}}</div>
-    <div>Visitor Score: {{game.visitor_team_score}}</div>
-    <div>Season: {{game.season}}</div>
+      <div> <input type="checkbox" name="checkedItem"><span class="chosen"> Game Id: {{game.id}}</span></div>
+      <div>Date: {{game.date.substring(0, 10)}}</div>
+      <div class="truncate">Home Team: {{game.home_team.full_name}}</div>
+      <div>Home Score: {{game.home_team_score}}</div>
+      <div class="truncate">Visitor Team: {{game.visitor_team.full_name}}</div>
+      <div>Visitor Score: {{game.visitor_team_score}}</div>
+      <div class="chosen">Season: {{game.season}}</div>
   </div>
 </div>

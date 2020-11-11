@@ -32,6 +32,7 @@ export class AllStatsComponent implements OnInit {
   gameIds: string [] = [];
   selectedItems: string [];
 
+
   constructor(private allStatsService: AllStatsService) {
     // this.getAllPlayersInfo();
   }

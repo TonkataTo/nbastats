@@ -1,7 +1,8 @@
+import { IPlayerDetails, PlayerDetails } from './all-games/player-details.model';
+import { IPlayerStats } from './all-stats/stats.model';
 import { SERVER_API_URL } from './app.constants';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { CustomRange } from './shared/custom-range.model';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Game } from './all-games/game.model';
 
@@ -10,30 +11,35 @@ import { Game } from './all-games/game.model';
 })
 export class AllStatsService {
 
-  public resourceUrl = SERVER_API_URL + 'api/v1/stats';
+  public resourceUrl = SERVER_API_URL + 'api/v1/stats?game_ids[]=';
   private playerDetail$: BehaviorSubject<Game> = new BehaviorSubject(null);
   private hightlightedGames$: BehaviorSubject<Map<number, Game>> = new BehaviorSubject(null);
 
   constructor(private http: HttpClient) { }
 
-  query(gameIds: Map<number, Game>) {
+  query(playerIds: Map<number, Game>) {
     let params = new HttpParams();
-    gameIds.forEach(value => {
-        params = params.append('game_ids[]', value.id);
+    playerIds.forEach(value => {
+        params = params.append('player_ids[]=', value.id);
       });
     return this.http.get(this.resourceUrl, {params});
   }
 
+  getPlayersNames(selectedGameKey) {
+    return this.http.get(this.resourceUrl, selectedGameKey);
+  }
 
-  // getPlayerDetails(): Observable<Game> {
-  //   return this.playerDetail$.asObservable();
-  // }
 
-  // setPlayerDetails(games: Game) {
-  //     this.playerDetail$.next(games);
-  // }
+  getPlayerDetails(): Observable<Game> {
+    return this.playerDetail$.asObservable();
+  }
 
-  getHighlightedGames(): Observable<Map<number, Game>> {
+  setPlayerDetails(games: Game) {
+      this.playerDetail$.next(games);
+  }
+
+
+  getPlayersStats(): Observable<Map<number, Game>> {
     return this.hightlightedGames$.asObservable();
   }
 

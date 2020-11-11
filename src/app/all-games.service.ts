@@ -4,7 +4,6 @@ import { Injectable } from '@angular/core';
 import { CustomRange } from './shared/custom-range.model';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Game } from './all-games/game.model';
-import { GameStats } from './all-stats/stats.model';
 
 @Injectable({
   providedIn: 'root'

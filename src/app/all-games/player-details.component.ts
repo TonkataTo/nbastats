@@ -1,10 +1,8 @@
+import { PlayerDetails } from './player-details.model';
 import { AllStatsService } from './../all-stats.service';
-import { CustomRange } from './../shared/custom-range.model';
 import { AllGamesService } from './../all-games.service';
-import { IGame, Game } from './game.model';
+import { Game } from './game.model';
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
-import { MIN_SEARCH_STRING, MAX_SEARCH_STRING } from '../app.constants';
 import { Subject } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -19,6 +17,8 @@ export class PlayerDetailsComponent implements OnInit, OnDestroy {
   highlightedGames = new Map<number, Game>();
   unsubscribe$: Subject<boolean> = new Subject();
   keysOfGames: any;
+  selectedGameKey: Game;
+  players: PlayerDetails;
 
   constructor(private allStatsService: AllStatsService,
               private router: Router,
@@ -39,8 +39,8 @@ getKeys() {
   this.keysOfGames = this.highlightedGames?.keys();
 }
 
-showPlayersFromGame() {
-
+showPlayersFromGame(selectedGameKey: Game) {
+  this.allStatsService.getPlayersNames(selectedGameKey);
 }
 
 ngOnDestroy() {

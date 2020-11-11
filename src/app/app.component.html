@@ -300,14 +300,16 @@
 
 <!-- Toolbar -->
 <div class="toolbar" role="banner">
-  <img
-    width="25"
-    alt="NBA Logo"
-    src="assets/img/nba-logo-cut.png"
-  />
-  <span>NBA fan zone</span>
-    <div class="spacer"></div>
+  <div class="nba-logo">
+    <img width="25" title="NBA Logo" src="assets/img/nba-logo-cut.png">
+  </div>
+  <span class="fan-zone">NBA fan zone</span>
+  <div class="basket-net">
+    <img width="55" src="assets/img/basket-net.png" title="hoopin'">
+  </div>
+  <div class="basket">
     <img width="35" src="assets/img/basket-ball.png" title="ballin'">
+  </div>
     <!-- <a aria-label="Angular on twitter" target="_blank" rel="noopener" href="https://twitter.com/angular" title="Twitter">
       <svg id="twitter-logo" height="24" data-name="Logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
         <rect width="400" height="400" fill="none"/>
@@ -320,7 +322,7 @@
 
   <!-- Highlight Card -->
   <div class="card highlight-card card-small">
-    <img width="80" viewBox="0 0 101.678 101.678" src="assets/img/basket-ball.png" id="rocket" class="rocket-animation">
+    <img width="80" viewBox="0 0 101.678 101.678" src="assets/img/basket-ball.png" class="basket-animation">
     <!-- <svg id="rocket" class="rocket-animation" alt="Rocket Ship" xmlns="http://www.w3.org/2000/svg" width="101.678" height="101.678" viewBox="0 0 101.678 101.678">
       <g id="Group_83" data-name="Group 83" transform="translate(-141 -696)">
         <circle id="Ellipse_8" data-name="Ellipse 8" cx="50.839" cy="50.839" r="50.839" transform="translate(141 696)" fill="#dd0031"/>
@@ -376,7 +378,5 @@
     </a>
 
   </div>
-
-
 
 <router-outlet></router-outlet>

@@ -14,6 +14,14 @@
   margin: 0 auto;
 }
 
+.team-wrap::selection {
+  background-color: #f1c40f;
+}
+
+.teams-wrap::selection {
+  background-color: #f1c40f;
+}
+
 .truncate {
   width: 215px;
   white-space: nowrap;

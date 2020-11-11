@@ -1,10 +1,12 @@
-<div>It works!</div>
 <div class="selected-games" *ngFor="let key of keysOfGames">
   <div>
     <div>Game ID: {{key}} </div>
     <div class="truncate"><span  class="game-date-label">Home team: </span>{{highlightedGames.get(key).home_team.full_name}} </div>
     <div class="truncate"><span  class="game-date-label">Visitor team: </span>{{highlightedGames.get(key).visitor_team.full_name}} </div>
     <div><span  class="game-date-label">Date:</span> {{highlightedGames.get(key).date.substring(0, 10)}} </div>
-    <div (click)="showPlayersFromGame()">Show Players Statistics</div>
+    <div (click)="showPlayersFromGame(key)">Show Players Statistics</div>
   </div>
+</div>
+<div *ngFor="let player of players">
+  <div>Player Name: {{player.first_name}} {{player.last_name}}</div>
 </div>

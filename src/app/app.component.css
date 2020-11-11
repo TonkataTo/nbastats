@@ -1,4 +1,13 @@
-.rocket-animation {
+.fan-zone {
+  position: absolute;
+  left: 7em;
+}
+
+.nba-logo {
+  position: absolute;
+}
+
+.basket-animation {
   animation-name: rotate;
   animation-duration: 10s;
   animation-delay: 2s;
@@ -12,4 +21,45 @@
 @-webkit-keyframes rotate {
   0% { transform: rotate(0turn); }
   100% { transform: rotate(6turn); }
+}
+
+.basket {
+  position: absolute;
+  top: 0.9em;
+  left: 2.5em;
+  -webkit-transition: 3s ease-in-out;
+  -moz-transition: 3s ease-in-out;
+  -o-transition: 3s ease-in-out;
+  transition: 3s ease-in-out;
+  z-index: 1;
+}
+
+.basket-net {
+  position: absolute;
+  right: 0em;
+  top: 25em;
+  z-index: 2;
+}
+
+.basket-net:hover + .nba-logo {
+  -webkit-transform: rotate(30deg);
+    -moz-transform: rotate(30deg);
+    -o-transform: rotate(30deg);
+    -ms-transform: rotate(30deg);
+    transform: rotate(30deg);
+}
+
+
+.basket-net:hover + .basket {
+  -webkit-transform: rotate();
+  -moz-transform: rotate();
+  -o-transform: rotate();
+  -ms-transform: rotate();
+  /* transform: translateY(27em);
+  bottom: calc(100% - 110px); */
+  -webkit-transform: translate(1238px,320px);
+  -moz-transform: translate(1238px,320px);
+  -o-transform: translate(1238px,320px);
+  -ms-transform: translate(1238px,320px);
+  transform: translate(1238px,320px);
 }
